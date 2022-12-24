@@ -1,0 +1,23 @@
+.bgSection {
+  width: 858px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bgItem {
+  width: 100px;
+  height: 100px;
+  transition: transform 200ms linear;
+  cursor: pointer;
+}
+
+.bgItemName {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.activeItem {
+  transform: scale(1.1);
+}
