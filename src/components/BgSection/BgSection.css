@@ -1,3 +1,7 @@
+.bgBox {
+  padding-top: 50px;
+}
+
 .bgSection {
   width: 858px;
   margin-left: auto;
@@ -16,6 +20,11 @@
 .bgItemName {
   text-align: center;
   margin-bottom: 0;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 0 50px 0;
 }
 
 .activeItem {

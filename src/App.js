@@ -4,11 +4,10 @@ import BgSection from './components/BgSection/BgSection';
 
 class App extends Component {
 
-
   render() {
     return (
-      <div className="App" onClick={this.showCurrentClick}>
-        <h1>Choose the background</h1>
+      <div className="App">
+        
         <BgSection />
       </div>
     );
