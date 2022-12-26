@@ -38,19 +38,11 @@ const BgSection = ({ setBackgroundColor }) => {
     <section className="bgBox" onClick={makeOptionUnactive}>
       <h1>
         Choose the background
-        <IconButton aria-label="delete">
+        <IconButton aria-label="delete" onClick={onButtonClick}>
           {isSectionOpen ? (
-            <ArrowCircleUpIcon
-              color="secondary"
-              fontSize="large"
-              onClick={onButtonClick}
-            />
+            <ArrowCircleUpIcon color="secondary" fontSize="large" />
           ) : (
-            <ArrowCircleDownIcon
-              color="secondary"
-              fontSize="large"
-              onClick={onButtonClick}
-            />
+            <ArrowCircleDownIcon color="secondary" fontSize="large" />
           )}
         </IconButton>
       </h1>
