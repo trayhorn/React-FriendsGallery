@@ -1,17 +1,16 @@
 import './App.css';
-import { Component } from 'react';
+import { useState } from 'react';
 import BgSection from './components/BgSection/BgSection';
 
-class App extends Component {
+function App() {
+  const [backgroundColor, setBackgroundColor] = useState('');
 
-  render() {
-    return (
-      <div className="App">
-        
-        <BgSection />
-      </div>
-    );
-  }
+  return (
+    <div className="App" style={{ backgroundColor: backgroundColor }}>
+      <BgSection setBackgroundColor={setBackgroundColor} />
+    </div>
+  );
 }
+
 
 export default App;

@@ -1,8 +1,11 @@
 import './BgSection.css';
+import IconButton from '@mui/material/IconButton';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import { useState } from 'react';
 import initialColors from '../../backgroundColors.json';
 
-const BgSection = () => {
+const BgSection = ({ setBackgroundColor }) => {
   const [activeOptionIdx, setActiveOptionIdx] = useState();
   const [isSectionOpen, setIsSectionOpen] = useState(false);
 
@@ -12,12 +15,14 @@ const BgSection = () => {
       classArray.push('activeItem');
     }
 
+    console.log();
+
     return classArray.join(' ');
   };
 
-  const makeOptionUnactive = (e) => {
+  const makeOptionUnactive = e => {
     if (e.target.className !== 'bgItem') {
-      setActiveOptionIdx()
+      setActiveOptionIdx();
     }
   };
 
@@ -27,14 +32,27 @@ const BgSection = () => {
     } else {
       setIsSectionOpen(false);
     }
-  }
-
+  };
 
   return (
     <section className="bgBox" onClick={makeOptionUnactive}>
       <h1>
         Choose the background
-        <button onClick={onButtonClick}>Click</button>
+        <IconButton aria-label="delete">
+          {isSectionOpen ? (
+            <ArrowCircleUpIcon
+              color="secondary"
+              fontSize="large"
+              onClick={onButtonClick}
+            />
+          ) : (
+            <ArrowCircleDownIcon
+              color="secondary"
+              fontSize="large"
+              onClick={onButtonClick}
+            />
+          )}
+        </IconButton>
       </h1>
       {isSectionOpen && (
         <div className="bgSection">
@@ -43,7 +61,10 @@ const BgSection = () => {
               <div
                 className={`${makeOptionActive(index)}`}
                 style={{ backgroundColor: color }}
-                onClick={() => setActiveOptionIdx(index)}
+                onClick={() => {
+                  setActiveOptionIdx(index);
+                  setBackgroundColor(color);
+                }}
               ></div>
               <p className="bgItemName">{label}</p>
             </div>
